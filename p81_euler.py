@@ -3,7 +3,9 @@ In the 5 by 5 matrix below, the minimal path sum from the top left to the bottom
 by only moving to the right and down, is indicated in bold red and is equal to 2427.
 
 Find the minimal path sum from the top left to the bottom right by only moving right and down in matrix.txt
-(right click and "Save Link/Target As..."), a 31K text file containing an 80 by 80 matrix.
+(right click and "Save Link/Target As..."), a 31K text file containing an 80 by 80 matrix. 
+
+Correct answer: 427337
 """
 
 import csv
@@ -49,6 +51,7 @@ if __name__ == "__main__":
     start_time = time.perf_counter()
 
     B = []
+    # Read given 80x80 matrix from file
     with open("matrix.txt", "r") as file:
         csvreader = csv.reader(file, delimiter=",")
         for row in csvreader:

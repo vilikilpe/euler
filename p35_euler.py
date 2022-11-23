@@ -19,7 +19,7 @@ def prime_number(num: int) -> bool:
     Returns:
         bool: return True if number is prime number
     """
-    for i in range(2, m.ceil(m.sqrt(num)) + 1):
+    for i in range(2, m.ceil(m.sqrt(num)) + 1):  # reduce redundant checks with sqrt
         if num % i == 0 and num != 2:
             return False
     return True
@@ -42,7 +42,7 @@ def primes_v1(n: int) -> list:
 
 
 def primes_v2(n: int) -> list:
-    """Finds all primes under n, version 2
+    """Finds all primes under n, version 2. Reduce even more redundant checks.
 
     Args:
         n (int): range upper limit
@@ -67,7 +67,7 @@ def permutations(num: int) -> list:
         list: list of integers
     """
 
-    # number of chars in num
+    # number of digis in a given number
     nbr = m.floor(m.log10(num) + 1)
 
     perm = []
@@ -89,14 +89,17 @@ def circular_primes(n: int) -> int:
     Returns:
         int: number of circlar primes
     """
+    # Find all primes below number n
     primes = primes_v2(n)
     i = 0
+    # Loop all primes and check if all circular permutations are prime numbers
     for prime in primes:
         all_primes = True
         for number in permutations(prime):
             if prime_number(number) == False:
                 all_primes = False
                 break
+        # If all circular permutations are prime numbers update i
         if all_primes:
             i += 1
     return i
